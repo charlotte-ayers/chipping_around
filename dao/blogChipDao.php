@@ -47,11 +47,11 @@ class BlogChipDao {
         //$todo->setLastModifiedOn(new DateTime());
         $sql = '
             UPDATE blog_chip SET
-                chip_colour = :chip_colour
-                chip_crunch = :chip_crunch
-                chip_condiments = :chip_condiments
-                chip_consistency = :chip_consistency
-                chip_cash = :chip_cash
+                chip_colour = :chip_colour,
+                chip_crunch = :chip_crunch,
+                chip_condiments = :chip_condiments,
+                chip_consistency = :chip_consistency,
+                chip_cash = :chip_cash,
                 chip_charisma = :chip_charisma
             WHERE
             blog_id = :blog_id';

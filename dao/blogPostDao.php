@@ -49,9 +49,9 @@ class BlogPostDao {
             UPDATE blog_posts SET
                 status = :status,
                 date = :date,
-                content = :content
-                description = :description
-                created_by = :created_by
+                content = :content,
+                description = :description,
+                created_by = :created_by,
                 modified_by = :modified_by
             WHERE
                 blog_id = :blog_id';

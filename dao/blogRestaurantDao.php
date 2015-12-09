@@ -47,7 +47,7 @@ class BlogRestaurantDao {
         //$todo->setLastModifiedOn(new DateTime());
         $sql = '
             UPDATE blog_restaurant SET
-                name_of_restaurant = :name_of_restaurant
+                name_of_restaurant = :name_of_restaurant,
                 overall_rating = :overall_rating
             WHERE
             blog_id = :blog_id';
