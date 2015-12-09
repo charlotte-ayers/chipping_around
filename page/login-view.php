@@ -17,7 +17,7 @@
         
         <div class="field">
             <label>Password:</label>
-            <input type="date" name="date" value="<?php echo Utils::escape($blogMember->getPassword()); ?>"/>
+            <input type="text" name="password" value="<?php echo Utils::escape($blogMember->getPassword()); ?>"/>
         </div>
         </fieldset>
         <div class="wrapper">

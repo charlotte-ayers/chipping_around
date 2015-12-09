@@ -5,7 +5,7 @@
  *
  * @author richard_lovell
  */
-class MemberDao {
+class BlogMemberDao {
 
     private $db = null;
 
@@ -115,21 +115,21 @@ class MemberDao {
     private function execute($sql, BlogMember $blogMember) {
         $statement = $this->getDb()->prepare($sql);
         $this->executeStatement($statement, $this->getParams($blogMember));
-        if (!$blogMember->getMemberId()) {
+        if (!$blogMember->getId()) {
             return $this->findById($this->getDb()->lastInsertId());
         }
         if (!$statement->rowCount()) {
-            throw new NotFoundException('BlogMember with ID "' . $blogMember->getMemberId() . '" does not exist.');
+            throw new NotFoundException('BlogMember with ID "' . $blogMember->getId() . '" does not exist.');
         }
         return $blogMember;
     }
 
     private function getParams(BlogMember $blogMember) {
         $params = array(
-            ':member_id' => $blogMember->getMemberId(),
+            ':member_id' => $blogMember->getId(),
             ':username' => $blogMember->getUsername(),
             ':email' => $blogMember->getEmail(),
-            ':password' => $blogPassword->getPassword()
+            ':password' => $blogMember->getPassword()
         );
 //        if ($flightBooking->getId()) {
 //            // unset created date, this one is never updated

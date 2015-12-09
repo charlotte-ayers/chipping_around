@@ -2,18 +2,18 @@
 
 $errors = array();
 $blogMember = null;
-$year = time() + 31536000;
-setcookie('remember_me', $_POST['username'], $year);
-
-if($_POST['remember']) {
-setcookie('remember_me', $_POST['username'], $year);
-}
-elseif(!$_POST['remember']) {
-	if(isset($_COOKIE['remember_me'])) {
-		$past = time() - 100;
-		setcookie(remember_me, gone, $past);
-	}
-}
+//$year = time() + 31536000;
+//setcookie('remember_me', $_POST['username'], $year);
+//
+//if($_POST['remember']) {
+//setcookie('remember_me', $_POST['username'], $year);
+//}
+//elseif(!$_POST['remember']) {
+//	if(isset($_COOKIE['remember_me'])) {
+//		$past = time() - 100;
+//		setcookie(remember_me, gone, $past);
+//	}
+//}
 
 $edit = array_key_exists('member_id', $_GET);
 if ($edit) {

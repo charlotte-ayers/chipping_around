@@ -5,6 +5,7 @@ final class Index{
     const LAYOUT_DIR = '../layout/';
     const DEFAULT_PAGE = 'list';
     
+    
    
     public function init(){
         session_start();
@@ -37,7 +38,6 @@ final class Index{
 //            'TodoSearchCriteria' => '../dao/TodoSearchCriteria.php',
             'BlogPostValidator' => '../validation/blogPostValidator.php',
             'BlogRestaurantValidator' => '../validation/blogRestaurantValidator.php',
-            'BlogChipValidator' => '../validation/blogChipValidator.php',
             'BlogMemberValidator' => '../validation/blogMemberValidator.php',
             'Utils' => '../util/utils.php'
         );

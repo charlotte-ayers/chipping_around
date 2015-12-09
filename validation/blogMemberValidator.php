@@ -4,23 +4,27 @@
  * A class for validating the Flight bookings.
  * @author Richard Lovell
  */
-class BlogMemberValidator{
-    
-    public static function validate(BlogMember $blogMember){
+class BlogMemberValidator {
+
+    public static function validate(BlogMember $blogMember) {
         $errors = array();
-        if(!trim($blogMember->getUsername())){
+        if (!trim($blogMember->getUsername())) {
             $errors[] = new Error('username', 'Username cannot be empty.');
         }
-        return $errors;
-    }
-        public static function validate(BlogMember $blogMember){
-        $errors = array();
-        if(!trim($blogMember->getPassword())){
+        if (!trim($blogMember->getPassword())) {
             $errors[] = new Error('password', 'Password cannot be empty.');
         }
         return $errors;
     }
     
+//    public static function validate(BlogMember $blogMember) {
+//        $errors = array();
+//        if (!trim($blogMember->getPassword())) {
+//            $errors[] = new Error('password', 'Password cannot be empty.');
+//        }
+//        return $errors;
+//    }
+
     /**
      * Validate the given status.
      * @param string $status status to be validated

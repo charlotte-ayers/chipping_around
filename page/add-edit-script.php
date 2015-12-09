@@ -25,26 +25,29 @@ if (array_key_exists('cancel', $_POST)) {
     // for security reasons, do not map the whole $_POST['todo']
     //pretending to have values in $_POST
     //$data = array('first_name' => 'Bob', 'no_of_passengers' => 2);
-    $data = array(
+    $blogPostData = array(
+        'content' => $_POST ['content'],
+        'date' => $_POST ['date'] . ' 00:00:00'
+    );
+    $blogRestaurantData = array(
         'name_of_restaurant' => $_POST ['name_of_restaurant'],
         'overall_rating' => $_POST ['overall_rating'],
-        'content' => $_POST ['content'],
+    );
+    $blogChipData = array(
         'chip_colour' => $_POST ['chip_colour'],
         'chip_crunch' => $_POST ['chip_crunch'],
         'chip_condiments' => $_POST ['chip_condiments'],
         'chip_consistency' => $_POST ['chip_consistency'],
         'chip_cash' => $_POST ['chip_cash'],
         'chip_charisma' => $_POST ['chip_charisma'],
-        'date' => $_POST ['date'] . ' 00:00:00'
     );
     // map
-    BlogPostMapper::simpleMap($blogPost, $data);
-    BlogRestaurantMapper::map($blogRestaurant, $data);
-    BlogChipMapper::map($blogChip, $data);
+    BlogPostMapper::simpleMap($blogPost, $blogPostData);
+    BlogRestaurantMapper::map($blogRestaurant, $blogRestaurantData);
+    BlogChipMapper::map($blogChip, $blogChipData);
     // validate
     $errors = BlogPostValidator::validate($blogPost);
     $errors = BlogRestaurantValidator::validate($blogRestaurant);
-    $errors = BlogChipValidator::validate($blogChip);
 
     if (empty($errors)) {
         // save

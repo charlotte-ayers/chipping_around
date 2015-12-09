@@ -7,7 +7,7 @@ class BlogMember {
     private $email;
     private $password;
 
-    function getMemberId() {
+    function getId() {
         return $this->member_id;
     }
     
@@ -23,7 +23,7 @@ class BlogMember {
         return $this->password;
     }
 
-        function setMemberId($member_id) {
+        function setId($member_id) {
         $this->member_id = $member_id;
     }
     

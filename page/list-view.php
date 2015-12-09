@@ -11,9 +11,7 @@
             <li><a href="index.php?page=list&status=pending">DashBoard</a></li>
             <b id="logout"><a href="chipping_around/page/logout.php">Log Out</a></b>
         </ul>
-<div id="profile">
-<b id="welcome">Welcome : <i><?php echo $login_session; ?></i></b>
-</div>
+
 </body>
 
 <a href="index.php?page=add-edit">Make a Review</a>

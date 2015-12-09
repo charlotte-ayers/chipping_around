@@ -63,17 +63,17 @@ class Utils {
         return $blogRestaurant;
     }
         public static function getBlogMemberByGetId() {
-        $id = null;
+        $member_id = null;
         try {
-            $id = self::getUrlParam('blog_member');
+            $member_id = self::getUrlParam('blog_member');
         } catch (Exception $ex) {
             throw new NotFoundException('No BlogMember identifier provided.');
         }
-        if (!is_numeric($id)) {
+        if (!is_numeric($member_id)) {
             throw new NotFoundException('Invalid BlogMember identifier provided.');
         }
         $blogMemberDao = new BlogMemberDao();
-        $blogMember = $blogMemberDao->findById($id);
+        $blogMember = $blogMemberDao->findById($member_id);
         if ($blogMember === null) {
             throw new NotFoundException('Unknown BlogMember identifier provided.');
         }
