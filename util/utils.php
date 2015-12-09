@@ -62,6 +62,23 @@ class Utils {
         }
         return $blogRestaurant;
     }
+        public static function getBlogMemberByGetId() {
+        $id = null;
+        try {
+            $id = self::getUrlParam('blog_member');
+        } catch (Exception $ex) {
+            throw new NotFoundException('No BlogMember identifier provided.');
+        }
+        if (!is_numeric($id)) {
+            throw new NotFoundException('Invalid BlogMember identifier provided.');
+        }
+        $blogMemberDao = new BlogMemberDao();
+        $blogMember = $blogMemberDao->findById($id);
+        if ($blogMember === null) {
+            throw new NotFoundException('Unknown BlogMember identifier provided.');
+        }
+        return $blogMember;
+    }
 
     /**
      * Capitalize the first letter of the given string

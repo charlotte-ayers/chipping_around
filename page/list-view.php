@@ -1,4 +1,3 @@
-<?php require 'partials/flashes.php' ?>
 <?php require 'partials/flashes.php'?>
 <h1>Dashboard</h1>
 <p>Hello Chipper!</p>

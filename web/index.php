@@ -24,18 +24,21 @@ final class Index{
             'BlogPostDao' => '../dao/blogPostDao.php',
             'BlogRestaurantDao' => '../dao/blogRestaurantDao.php',
             'BlogChipDao' => '../dao/blogChipDao.php',
-            'LoginDao' => '../dao/loginDao.php',
+            'BlogMemberDao' => '../dao/blogMemberDao.php',
             'BlogPostMapper' => '../mapping/blogPostMapper.php',
             'BlogRestaurantMapper' => '../mapping/blogRestaurantMapper.php',
             'BlogChipMapper' => '../mapping/blogChipMapper.php',
+            'BlogMemberMapper' => '../mapping/blogMemberMapper.php',
             'BlogPost' => '../model/blogPost.php',
             'SimpleBlogPost' => '../model/simpleBlogPost.php',
             'BlogRestaurant' => '../model/blogRestaurant.php',
             'BlogChip' => '../model/blogChip.php',
+            'BlogMember' => '../model/blogMember.php',
 //            'TodoSearchCriteria' => '../dao/TodoSearchCriteria.php',
             'BlogPostValidator' => '../validation/blogPostValidator.php',
             'BlogRestaurantValidator' => '../validation/blogRestaurantValidator.php',
             'BlogChipValidator' => '../validation/blogChipValidator.php',
+            'BlogMemberValidator' => '../validation/blogMemberValidator.php',
             'Utils' => '../util/utils.php'
         );
         if (!array_key_exists($name, $classes)) {
