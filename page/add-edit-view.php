@@ -1,3 +1,8 @@
+        <ul>
+<!--            <li><a href="index.php">Home</a></li>-->
+            <li><a href="index.php?page=list&status=pending">DashBoard</a></li>
+            <b id="logout"><a href="chipping_around/page/logout.php">Log Out</a></b>
+        </ul>
 <h1>Make a Review</h1>
 
 <?php if (!empty($errors)): ?>

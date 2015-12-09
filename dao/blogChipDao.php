@@ -32,7 +32,7 @@ class BlogChipDao {
         $blogChip->setId(null);
         //$flightBooking->setCreatedOn($now);
         //$flightBooking->setLastModifiedOn($now);
-        $blogChip->setStatus(BlogPost::PENDING);
+        $blogChip->setStatus(SimpleBlogPost::PENDING);
         $sql = '
                 INSERT INTO blog_chip (chip_colour, chip_crunch, chip_condiments, chip_consistency, chip_cash, chip_charisma)
                 VALUES (:chip_colour, :chip_crunch, :chip_condiments, :chip_consistency, :chip_cash, :chip_charisma)';
@@ -89,7 +89,7 @@ class BlogChipDao {
         $sql = 'SELECT blog_id, date FROM blog_posts WHERE '
                 . 'status = "'.$status.'";';
         foreach ($this->query($sql) as $row) {
-            $blogPost = new BlogPost();
+            $blogPost = new SimpleBlogPost();
             BlogPostMapper::map($blogPost, $row);
             $result[$blogPost->getId()] = $blogPost;
         }

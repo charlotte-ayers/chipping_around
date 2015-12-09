@@ -7,6 +7,11 @@
 <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+            <ul>
+<!--            <li><a href="index.php">Home</a></li>-->
+            <li><a href="index.php?page=list&status=pending">DashBoard</a></li>
+            <b id="logout"><a href="chipping_around/page/logout.php">Log Out</a></b>
+        </ul>
 <div id="profile">
 <b id="welcome">Welcome : <i><?php echo $login_session; ?></i></b>
 </div>
@@ -43,7 +48,7 @@
                     <td><?php echo $blogPost->getDescription(); ?></td>
                     
                     <td><a href="index.php?page=add-edit&id=<?php echo $blogPost->getId(); ?>">Edit</a> | 
-                        <a href="index.php?page=change-status&id=<?php echo $blogPost->getId(); ?>&cmd=<?php echo BlogPost::VOIDED; ?>&status=<?php echo $blogPost->getStatus(); ?>">Delete</a></td>
+                        <a href="index.php?page=change-status&id=<?php echo $blogPost->getId(); ?>&cmd=<?php echo SimpleBlogPost::VOIDED; ?>&status=<?php echo $blogPost->getStatus(); ?>">Delete</a></td>
                 </tr>
     <?php endforeach; ?>
         </tbody>

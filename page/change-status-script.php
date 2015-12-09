@@ -12,7 +12,7 @@ $blogPost->setStatus($cmd);
 $dao = new BlogPostDao();
 $dao->save($blogPost);
 $msg = '';
-if($cmd === BlogPost::VOIDED){
+if($cmd === SimpleBlogPost::VOIDED){
     $msg = 'Review deleted successfully.';
 }else{
     $msg = 'Review status changed successfully.';

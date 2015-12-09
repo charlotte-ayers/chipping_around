@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<?php
+?>
 <html>
     <head>
         <title>Chipping Around - To find the fry! Christchurch's best hot chip review site!</title>
@@ -16,11 +17,12 @@
                 <ul>
                     <li><a alt = "about-us" href="blog-chippers.php">Chippers</a></li>
                     <li><a href="blog-chip-scrutiny.php">Chip Scrutiny</a></li>
-                    <li><a href="page/blog-contact.php">Contact</a></li>
+                    <li><a href="blog-contact.php">Contact</a></li>
                 </ul>
             </nav>
-    <body>
+        </header>
+            <h1> Chippers</h1
+            <p>Here goes information about the whole thing and the reviewers!</p>
+        </div>
+        </body>
 
-        <?php require $template ?>
-    </body>
-</html>

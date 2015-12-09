@@ -7,23 +7,21 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="css/style.css">
-        <link rel="shortcut icon" type="image/png" href="web/images/favicon.png"/>
+        <link rel="shortcut icon" type="image/png" href="images/favicon.png"/>
     </head>
     <body>
         <div class="central">
         <header>
-            <img class= "logo" src="images/logo.png" alt="logo">
+            <a href="blog-home.php"><img class= "logo" src="images/logo.png" alt="logo"></a>
             <nav>
                 <ul>
-                    <li><a href="">Chippers</a></li>
-                    <li><a href="">Chip Scrutiny</a></li>
-                    <li><a href="">Contact</a></li>
+                    <li><a alt = "about-us" href="blog-chippers.php">Chippers</a></li>
+                    <li><a href="blog-chip-scrutiny.php">Chip Scrutiny</a></li>
+                    <li><a href="blog-contact.php">Contact</a></li>
                 </ul>
             </nav>
-            <div id="clear">
-            </div>
         </header>
+            <h1> Chip Scrutiny</h1
+            <p>Here goes information about the review process!</p>
         </div>
         </body>
-        
-

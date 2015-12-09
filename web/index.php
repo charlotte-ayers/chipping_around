@@ -29,6 +29,7 @@ final class Index{
             'BlogRestaurantMapper' => '../mapping/blogRestaurantMapper.php',
             'BlogChipMapper' => '../mapping/blogChipMapper.php',
             'BlogPost' => '../model/blogPost.php',
+            'SimpleBlogPost' => '../model/simpleBlogPost.php',
             'BlogRestaurant' => '../model/blogRestaurant.php',
             'BlogChip' => '../model/blogChip.php',
 //            'TodoSearchCriteria' => '../dao/TodoSearchCriteria.php',

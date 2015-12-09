@@ -6,7 +6,7 @@
  */
 class BlogPostValidator{
     
-    public static function validate(BlogPost $blogPost){
+    public static function validate(SimpleBlogPost $blogPost){
         $errors = array();
 //        if(!trim($blogPost->getDate())){
 //            $errors[] = new Error('date', 'Date cannot be empty.');
@@ -26,7 +26,7 @@ class BlogPostValidator{
     }
     
     private static function isValidStatus($status) {
-        return in_array($status, BlogPost::allStatuses());
+        return in_array($status, SimpleBlogPost::allStatuses());
     }
 }
 

@@ -49,7 +49,35 @@ class BlogPostMapper {
             $blogPost->setUsername($properties['username']);
         }
     }
+public static function simpleMap(SimpleBlogPost $blogPost, array $properties) {
+        if (array_key_exists('blog_id', $properties)) {
+            $blogPost->setId((int)$properties['blog_id']);
+        }
+        if (array_key_exists('date', $properties)) {
+            $formattedDate = $properties['date'];
+            $date = self::createDateTime($formattedDate);
+            if ($date) {
+                $blogPost->setDate($date);
+            }
+        }
+        if (array_key_exists('content', $properties)) {
+            $blogPost->setContent($properties['content']);
+        }
+        if (array_key_exists('created_by', $properties)) {
+            $blogPost->setCreatedBy($properties['created_by']);
+        }
+        if (array_key_exists('description', $properties)) {
+            $blogPost->setDescription($properties['description']);
+        }
+        if (array_key_exists('modified_by', $properties)) {
+            $blogPost->setModifiedBy($properties['modified_by']);
+        }
 
+        if (array_key_exists('restaurant_id', $properties)) {
+            $blogPost->setRestaurantId($properties['restaurant_id']);
+        }
+
+    }
     private static function createDateTime($input) {
         return DateTime::createFromFormat('Y-n-j H:i:s', $input);
 //        $date = explode('-', $input);

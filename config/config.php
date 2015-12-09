@@ -26,7 +26,3 @@ class Config{
         return $data[$section];
     }
 }
-////include the member class, pass in the database connection
-//include('classes/memberDao.php');
-//include('classes/phpmailer/mail.php');
-//$member = new Member($db);

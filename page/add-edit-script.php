@@ -8,7 +8,7 @@ if ($edit) {
     $blogPost = Utils::getBlogPostByGetId();
 } else {
     // set defaults
-    $blogPost = new BlogPost();
+    $blogPost = new SimpleBlogPost();
     $blogPost->setDate(new DateTime());
     $blogRestaurant = new BlogRestaurant();
     $blogChip = new BlogChip();
@@ -38,7 +38,7 @@ if (array_key_exists('cancel', $_POST)) {
         'date' => $_POST ['date'] . ' 00:00:00'
     );
     // map
-    BlogPostMapper::map($blogPost, $data);
+    BlogPostMapper::simpleMap($blogPost, $data);
     BlogRestaurantMapper::map($blogRestaurant, $data);
     BlogChipMapper::map($blogChip, $data);
     // validate

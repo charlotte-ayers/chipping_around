@@ -12,16 +12,44 @@ and open the template in the editor.
     font-family: Phosphate, sans-serif; 
     src: url(Phosphate-Inline.ttf); 
 }
+@font-face { 
+    font-family: Keyboard, sans-serif; 
+    src: url(Keyboard.ttf);
+    
+}
 a {
     font-family: Phosphate;
     font-size: 16pt;
     text-transform: uppercase;
 }
 
+h1 {
+    font-family: Phosphate;
+    font-size: 30pt;
+    text-transform: uppercase;
+}
+h2 {
+    font-family: Phosphate;
+    font-size: 20pt;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+p {
+    font-family: Keyboard;
+    font-size: 12pt;
+}
+
 body { 
     background-color: #f8ebd9;
-	background-image: url("../images/background.jpg");
+    background-image: url("../images/background.jpg");
+
 }
+
+#clear {
+    clear: both;
+}
+
 .central{
     position: fixed;
     top: 0;
@@ -33,8 +61,8 @@ body {
     margin-left: auto;
     margin-right: auto;
     -webkit-box-shadow: 0px 3px 35px 7px rgba(0,0,0,0.77);
--moz-box-shadow: 0px 3px 35px 7px rgba(0,0,0,0.77);
-box-shadow: 0px 3px 35px 7px rgba(0,0,0,0.77);
+    -moz-box-shadow: 0px 3px 35px 7px rgba(0,0,0,0.77);
+    box-shadow: 0px 3px 35px 7px rgba(0,0,0,0.77);
 }
 /* header/navigation */
 header {
@@ -54,7 +82,7 @@ nav{
     list-style:none;
     text-align:center;
     padding-top: 10px;
-    
+
 }
 nav li{
     display:inline;
@@ -82,4 +110,38 @@ nav a:hover{
     border-radius: 20px;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
+}
+
+.blog-box{
+    margin-top: 70px;
+    border: 5px solid #000000;
+    -webkit-border-top-left-radius: 20px;
+    -webkit-border-top-right-radius: 20px;
+    -moz-border-radius-topleft: 20px;
+    -moz-border-radius-topright: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    width:500px;
+    height:250px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.blog-info{
+    background-color: #ffffff;
+    width: 250px;
+    height:250px;
+    -webkit-border-top-right-radius: 16px;
+    -moz-border-radius-topright: 16px;
+    border-top-right-radius: 16px;
+    float: right;
+}
+
+.blog-image-small img{
+        width: 250px;
+    height:250px;
+    -webkit-border-top-left-radius: 16px;
+    -moz-border-radius-topleft: 16px;
+    border-top-left-radius: 16px;
+    float: left;
 }

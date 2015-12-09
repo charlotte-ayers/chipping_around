@@ -32,7 +32,7 @@ class BlogRestaurantDao {
         $blogRestaurant->setId(null);
         //$flightBooking->setCreatedOn($now);
         //$flightBooking->setLastModifiedOn($now);
-        $blogRestaurant->setStatus(BlogPost::PENDING);
+        $blogRestaurant->setStatus(SimpleBlogPost::PENDING);
         $sql = '
                 INSERT INTO blog_restaurant (name_of_restaurant, overall_rating)
                 VALUES (:name_of_restaurant, :overall_rating)';
@@ -85,7 +85,7 @@ class BlogRestaurantDao {
         $sql = 'SELECT blog_id, date FROM blog_posts WHERE '
                 . 'status = "'.$status.'";';
         foreach ($this->query($sql) as $row) {
-            $blogPost = new BlogPost();
+            $blogPost = new SimpleBlogPost();
             BlogPostMapper::map($blogPost, $row);
             $result[$blogPost->getId()] = $blogPost;
         }

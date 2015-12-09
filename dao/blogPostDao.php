@@ -26,13 +26,13 @@ class BlogPostDao {
         return $this->db;
     }
 
-    public function insert(BlogPost $blogPost) {
+    public function insert(SimpleBlogPost $blogPost) {
         //needs changing
         //$now = new DateTime();
         $blogPost->setId(null);
         //$flightBooking->setCreatedOn($now);
         //$flightBooking->setLastModifiedOn($now);
-        $blogPost->setStatus(BlogPost::PENDING);
+        $blogPost->setStatus(SimpleBlogPost::PENDING);
         $sql = '
             INSERT INTO blog_posts (blog_id, status, date, content, description, created_by, modified_by)
                 VALUES (:blog_id, :status, :date, :content, :description, :created_by, :modified_by)';
@@ -43,7 +43,7 @@ class BlogPostDao {
      * @return Todo
      * @throws Exception
      */
-    private function update(BlogPost $blogPost) {
+    private function update(SimpleBlogPost $blogPost) {
         //$todo->setLastModifiedOn(new DateTime());
         $sql = '
             UPDATE blog_posts SET
@@ -58,7 +58,7 @@ class BlogPostDao {
         return $this->execute($sql, $blogPost);
     }
 
-    public function save(BlogPost $blogPost) {
+    public function save(SimpleBlogPost $blogPost) {
         if ($blogPost->getId() !== null) {
             $this->update($blogPost);
         } else {
@@ -75,8 +75,8 @@ class BlogPostDao {
         if (!$row) {
             return null;
         }
-        $blogPost = new BlogPost();
-        BlogPostMapper::map($blogPost, $row);
+        $blogPost = new SimpleBlogPost();
+        BlogPostMapper::simpleMap($blogPost, $row);
         return $blogPost;
     }
 
@@ -86,7 +86,7 @@ class BlogPostDao {
      */
     public function find($status = null) {
         $result = array();
-        $sql = 'SELECT b.date, b.description, b.created_by, r.restaurant_id, r.name_of_restaurant, r.overall_rating, m.username'
+        $sql = 'SELECT b.blog_id, b.date, b.description, b.created_by, r.restaurant_id, r.name_of_restaurant, r.overall_rating, m.username'
                 . ' FROM blog_posts b, blog_restaurant r, blog_member m '
                 . 'WHERE r.restaurant_id = b.restaurant_id AND m.username = b.created_by AND b.status = "' . $status . '";';
 //                $sql = 'SELECT b.date, b.description, r.restaurant_id, r.name_of_restaurant, r.overall_rating'
@@ -115,7 +115,7 @@ class BlogPostDao {
      * @return FlightBooking
      * @throws Exception
      */
-    private function execute($sql, BlogPost $blogPost) {
+    private function execute($sql, SimpleBlogPost $blogPost) {
         $statement = $this->getDb()->prepare($sql);
         $this->executeStatement($statement, $this->getParams($blogPost));
         if (!$blogPost->getId()) {
@@ -127,7 +127,7 @@ class BlogPostDao {
         return $blogPost;
     }
 
-    private function getParams(BlogPost $blogPost) {
+    private function getParams(SimpleBlogPost $blogPost) {
         $params = array(
             ':blog_id' => $blogPost->getId(),
             ':status' => $blogPost->getStatus(),
