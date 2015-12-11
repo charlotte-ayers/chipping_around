@@ -15,7 +15,7 @@ class BlogMemberMapper {
 
     public static function map(BlogMember $blogMember, array $properties) {
         if (array_key_exists('member_id', $properties)) {
-            $blogMember->setMemberId($properties['member_id']);
+            $blogMember->setId($properties['member_id']);
         }
         if (array_key_exists('username', $properties)) {
             $blogMember->setUsername($properties['username']);

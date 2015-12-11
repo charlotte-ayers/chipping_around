@@ -14,6 +14,9 @@ class BlogMemberValidator {
         if (!trim($blogMember->getPassword())) {
             $errors[] = new Error('password', 'Password cannot be empty.');
         }
+        if (!trim($blogMember->getEmail())) {
+            $errors[] = new Error('email', 'Email cannot be empty.');
+        }
         return $errors;
     }
     

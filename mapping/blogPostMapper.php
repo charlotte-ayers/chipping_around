@@ -13,7 +13,7 @@
  */
 class BlogPostMapper {
 
-    public static function map(BlogPost $blogPost, array $properties) {
+    public static function map(SimpleBlogPost $blogPost, array $properties) {
         if (array_key_exists('blog_id', $properties)) {
             $blogPost->setId($properties['blog_id']);
         }

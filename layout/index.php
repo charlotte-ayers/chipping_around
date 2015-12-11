@@ -11,12 +11,12 @@
     <body>
         <div class="central">
         <header>
-            <a href="blog-home.php"><img class= "logo" src="images/logo.png" alt="logo"></a>
+            <a href="index.php?page=home"><img class= "logo" src="images/logo.png" alt="logo"></a>
             <nav>
                 <ul>
-                    <li><a alt = "about-us" href="blog-chippers.php">Chippers</a></li>
-                    <li><a href="blog-chip-scrutiny.php">Chip Scrutiny</a></li>
-                    <li><a href="page/blog-contact.php">Contact</a></li>
+                    <li><a alt = "about-us" href="index.php?page=chippers">Chippers</a></li>
+                    <li><a href="index.php?page=chip-scrutiny">Chip Scrutiny</a></li>
+                    <li><a href="index.php?page=contact">Contact</a></li>
                 </ul>
             </nav>
     <body>

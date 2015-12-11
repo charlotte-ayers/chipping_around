@@ -34,8 +34,8 @@ class BlogPostDao {
         //$flightBooking->setLastModifiedOn($now);
         $blogPost->setStatus(SimpleBlogPost::PENDING);
         $sql = '
-            INSERT INTO blog_posts (blog_id, status, date, content, description, created_by, modified_by)
-                VALUES (:blog_id, :status, :date, :content, :description, :created_by, :modified_by)';
+            INSERT INTO blog_posts (blog_id, status, date, content, description, created_by, modified_by, restaurant_id)
+                VALUES (:blog_id, :status, :date, :content, :description, :created_by, :modified_by, :restaurant_id)';
         return $this->execute($sql, $blogPost);
     }
 
@@ -52,9 +52,11 @@ class BlogPostDao {
                 content = :content,
                 description = :description,
                 created_by = :created_by,
-                modified_by = :modified_by
+                modified_by = :modified_by,
+            restaurant_id => :restaurant_id
             WHERE
                 blog_id = :blog_id';
+
         return $this->execute($sql, $blogPost);
     }
 
@@ -76,7 +78,7 @@ class BlogPostDao {
             return null;
         }
         $blogPost = new SimpleBlogPost();
-        BlogPostMapper::simpleMap($blogPost, $row);
+        BlogPostMapper::map($blogPost, $row);
         return $blogPost;
     }
 
@@ -135,8 +137,10 @@ class BlogPostDao {
             ':content' => $blogPost->getContent(),
             ':description' => $blogPost->getDescription(), 
             ':created_by' => $blogPost->getCreatedBy(),
-            ':modified_by' => $blogPost->getModifiedBy()
+            ':modified_by' => $blogPost->getModifiedBy(),
+            ':restaurant_id' => $blogPost->getRestaurantId()
         );
+
 //        if ($flightBooking->getId()) {
 //            // unset created date, this one is never updated
 //            unset($params[':created_on']);

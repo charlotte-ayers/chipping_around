@@ -43,7 +43,6 @@ p {
 body { 
     background-color: #f8ebd9;
     background-image: url("../images/background.jpg");
-
 }
 
 #clear {
@@ -51,13 +50,13 @@ body {
 }
 
 .central{
-    position: fixed;
     top: 0;
     left: 10%;
     right:12%;
     width:900px;
     height:1280px;
     background-color: #f8ebd9;
+    margin-top:-10px;
     margin-left: auto;
     margin-right: auto;
     -webkit-box-shadow: 0px 3px 35px 7px rgba(0,0,0,0.77);
@@ -69,6 +68,7 @@ header {
     display: block;
     left:50%;
     padding-right: 35px;
+    padding-top: 20px;
 }
 
 .logo{
@@ -82,6 +82,7 @@ nav{
     list-style:none;
     text-align:center;
     padding-top: 10px;
+    
 
 }
 nav li{

@@ -12,7 +12,7 @@ class BlogMemberDao {
     public function __destruct() {
         $this->db = null;
     }
-
+    
     function getDb() {
         if ($this->db !== null) {
             return $this->db;
@@ -52,7 +52,7 @@ class BlogMemberDao {
                 password = :password,
             WHERE
                 member_id = :member_id';
-        return $this->execute($sql, $blogPost);
+        return $this->execute($sql, $blogMember);
     }
 
     public function save(BlogMember $blogMember) {
@@ -62,13 +62,17 @@ class BlogMemberDao {
             $this->insert($blogMember);
         }
     }
-
+     public function enter(BlogMember $blogMember) {
+    $username = $_POST[ 'username' ];
+$password = $_POST[ 'password' ];
+$sql = "SELECT username FROM blog_member WHERE username=:username";
+     }  
     /**
      * Find {@link Todo} by identifier.
      * @return Todo Todo or <i>null</i> if not found
      */
-    public function findById($id) {
-        $row = $this->query('SELECT * FROM blog_member WHERE member_id = ' . (int) $id)->fetch();
+    public function findById($member_id) {
+        $row = $this->query('SELECT * FROM blog_member WHERE member_id = ' . (int) $member_id)->fetch();
         if (!$row) {
             return null;
         }
@@ -81,18 +85,18 @@ class BlogMemberDao {
      * Find all {@link FlightBooking}s by search criteria.
      * @return array array of {@link FlightBooking}s
      */
-    public function find($status = null) {
+    public function find($username = null) {
         $result = array();
-        $sql = 'SELECT b.blog_id, b.date, b.description, b.created_by, r.restaurant_id, r.name_of_restaurant, r.overall_rating, m.username'
-                . ' FROM blog_posts b, blog_restaurant r, blog_member m '
-                . 'WHERE r.restaurant_id = b.restaurant_id AND m.username = b.created_by AND b.status = "' . $status . '";';
+        $sql = 'SELECT username, password'
+                . ' FROM blog_member'
+                . 'WHERE username = "' . $username . '";';
 //                $sql = 'SELECT b.date, b.description, r.restaurant_id, r.name_of_restaurant, r.overall_rating'
 //                . ' FROM blog_posts b, blog_restaurant r '
 //                . 'WHERE r.restaurant_id = b.restaurant_id AND b.status = "' . $status . '";';
         foreach ($this->query($sql) as $row) {
-            $blogPost = new BlogPost();
-            BlogPostMapper::map($blogPost, $row);
-            $result[$blogPost->getId()] = $blogPost;
+            $blogMember = new BlogMember();
+            BlogMemberMapper::map($blogMember, $row);
+            $result[$blogMember->getId()] = $blogMember;
         }
         return $result;
     }
@@ -150,4 +154,3 @@ class BlogMemberDao {
     }
 
 }
-

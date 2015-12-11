@@ -67,7 +67,7 @@ class BlogRestaurantDao {
      * @return Todo Todo or <i>null</i> if not found
      */
     public function findById($id) {
-        $row = $this->query('SELECT * FROM blog_posts WHERE blog_id = ' . (int) $id)->fetch();
+        $row = $this->query('SELECT * FROM blog_restaurant WHERE restaurant_id = ' . (int) $id)->fetch();
         if (!$row) {
             return null;
         }
@@ -114,7 +114,7 @@ class BlogRestaurantDao {
             return $this->findById($this->getDb()->lastInsertId());
         }
         if (!$statement->rowCount()) {
-            throw new NotFoundException('BlogPost with ID "' . $blogRestaurant->getId() . '" does not exist.');
+            throw new NotFoundException('BlogRestaurant with ID "' . $blogRestaurant->getId() . '" does not exist.');
         }
         return $blogRestaurant;
     }

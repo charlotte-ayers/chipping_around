@@ -9,7 +9,7 @@
             <ul>
 <!--            <li><a href="index.php">Home</a></li>-->
             <li><a href="index.php?page=list&status=pending">DashBoard</a></li>
-            <b id="logout"><a href="chipping_around/page/logout.php">Log Out</a></b>
+            <b id="logout"><a href="index.php?page=logout">Log Out</a></b>
         </ul>
 
 </body>

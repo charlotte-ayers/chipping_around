@@ -6,9 +6,14 @@ $blogPost = null;
 $edit = array_key_exists('id', $_GET);
 if ($edit) {
     $blogPost = Utils::getBlogPostByGetId();
+    $blogRestaurantDao = new BlogRestaurantDao();
+    $blogRestaurant = $blogRestaurantDao ->findById($blogPost -> getRestaurantId());
+    $blogChipDao = new BlogChipDao();
+    $blogChip = $blogChipDao ->findById($blogRestaurant -> getId());
+//    $blogRestaurant = Utils::getBlogRestaurantByGetId();
 } else {
     // set defaults
-    $blogPost = new SimpleBlogPost();
+    $blogPost = new BlogPost();
     $blogPost->setDate(new DateTime());
     $blogRestaurant = new BlogRestaurant();
     $blogChip = new BlogChip();
@@ -25,9 +30,26 @@ if (array_key_exists('cancel', $_POST)) {
     // for security reasons, do not map the whole $_POST['todo']
     //pretending to have values in $_POST
     //$data = array('first_name' => 'Bob', 'no_of_passengers' => 2);
+//        private $id;
+//    private $date;
+//    private $content;
+//    private $createdBy;
+//    private $modifiedBy;
+//    private $description;
+//    private $nameOfRestaurant;
+//    private $overallRating;
+//    private $restaurant_id;
+//    private $username;
+//    private $status = self::PENDING;
     $blogPostData = array(
         'content' => $_POST ['content'],
-        'date' => $_POST ['date'] . ' 00:00:00'
+        'date' => $_POST ['date'] . ' 00:00:00',
+        'created_by' => 'char',
+        'modified_by' => 'char',
+        'description' => $_POST ['content'],
+        'restaurant_id' => '44',
+        'status' => 'pending',
+        'modified_date' => $_POST ['date'] . ' 00:00:00'
     );
     $blogRestaurantData = array(
         'name_of_restaurant' => $_POST ['name_of_restaurant'],
@@ -39,7 +61,7 @@ if (array_key_exists('cancel', $_POST)) {
         'chip_condiments' => $_POST ['chip_condiments'],
         'chip_consistency' => $_POST ['chip_consistency'],
         'chip_cash' => $_POST ['chip_cash'],
-        'chip_charisma' => $_POST ['chip_charisma'],
+        'chip_charisma' => $_POST ['chip_charisma']
     );
     // map
     BlogPostMapper::simpleMap($blogPost, $blogPostData);
@@ -59,6 +81,6 @@ if (array_key_exists('cancel', $_POST)) {
         $blogChip = $blogChipDao->save($blogChip);
         Flash::addFlash('Thanks for the review Chipper!');
         // redirect
-        Utils::redirect('home');
+        Utils::redirect('list', array ('status'=>'pending'));
     }
 }

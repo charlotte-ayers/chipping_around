@@ -13,13 +13,15 @@
  */
 class BlogRestaurantMapper {
 
-    public static function map(BlogRestaurant $blogPost, array $properties) {
-       
+    public static function map(BlogRestaurant $blogRestaurant, array $properties) {
+       if (array_key_exists('restaurant_id', $properties)) {
+            $blogRestaurant->setId($properties['restaurant_id']);
+        }
         if (array_key_exists('name_of_restaurant', $properties)) {
-            $blogPost->setNameOfRestaurant($properties['name_of_restaurant']);
+            $blogRestaurant->setNameOfRestaurant($properties['name_of_restaurant']);
         }
         if (array_key_exists('overall_rating', $properties)) {
-            $blogPost->setOverallRating($properties['overall_rating']);
+            $blogRestaurant->setOverallRating($properties['overall_rating']);
         }
     }
 

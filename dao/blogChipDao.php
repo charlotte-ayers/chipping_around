@@ -34,8 +34,8 @@ class BlogChipDao {
         //$flightBooking->setLastModifiedOn($now);
         $blogChip->setStatus(SimpleBlogPost::PENDING);
         $sql = '
-                INSERT INTO blog_chip (chip_colour, chip_crunch, chip_condiments, chip_consistency, chip_cash, chip_charisma)
-                VALUES (:chip_colour, :chip_crunch, :chip_condiments, :chip_consistency, :chip_cash, :chip_charisma)';
+                INSERT INTO blog_chip (chip_colour, chip_crunch, chip_condiments, chip_consistency, chip_cash, chip_charisma, chip_id)
+                VALUES (:chip_colour, :chip_crunch, :chip_condiments, :chip_consistency, :chip_cash, :chip_charisma, :chip_id)';
         return $this->execute($sql, $blogChip);
     }
 
@@ -54,7 +54,7 @@ class BlogChipDao {
                 chip_cash = :chip_cash,
                 chip_charisma = :chip_charisma
             WHERE
-            blog_id = :blog_id';
+            chip_id = :chip_id';
         return $this->execute($sql, $blogChip);
     }
 
@@ -71,7 +71,7 @@ class BlogChipDao {
      * @return Todo Todo or <i>null</i> if not found
      */
     public function findById($id) {
-        $row = $this->query('SELECT * FROM blog_posts WHERE blog_id = ' . (int) $id)->fetch();
+        $row = $this->query('SELECT * FROM blog_chip WHERE restaurant_id = ' . (int) $id)->fetch();
         if (!$row) {
             return null;
         }
@@ -118,7 +118,7 @@ class BlogChipDao {
             return $this->findById($this->getDb()->lastInsertId());
         }
         if (!$statement->rowCount()) {
-            throw new NotFoundException('BlogPost with ID "' . $blogChip->getId() . '" does not exist.');
+            throw new NotFoundException('BlogChip with ID "' . $blogChip->getId() . '" does not exist.');
         }
         return $blogChip;
     }
@@ -130,7 +130,8 @@ class BlogChipDao {
             ':chip_consistency' => $blogChip->getChipConsistency(),
             ':chip_condiments' => $blogChip->getChipCondiments(),
             ':chip_cash' => $blogChip->getChipCash(),
-            ':chip_charisma' => $blogChip->getChipCharisma()
+            ':chip_charisma' => $blogChip->getChipCharisma(),
+            ':chip_id' => $blogChip->getId()
         );
 //        if ($flightBooking->getId()) {
 //            // unset created date, this one is never updated
